@@ -65,8 +65,10 @@ public class Game {
 			for (int col = 0; col < size - 1; col++) {
 				if (this.getBoard()[row][col] == null)
 					continue;
-				if (this.getBoard()[row][col].equals(this.getBoard()[row][col + 1])) {
-					this.getBoard()[row][col].absorb(this.getBoard()[row][col + 1]);
+				if (this.getBoard()[row][col]
+						.equals(this.getBoard()[row][col + 1])) {
+					this.getBoard()[row][col]
+							.absorb(this.getBoard()[row][col + 1]);
 					for (int k = col + 1; k < size - 1; k++) {
 						this.getBoard()[row][k] = this.getBoard()[row][k + 1];
 						this.getBoard()[row][k + 1] = null;
@@ -104,8 +106,10 @@ public class Game {
 			for (int col = size - 1; col > 0; col--) {
 				if (this.getBoard()[row][col] == null)
 					continue;
-				if (this.getBoard()[row][col].equals(this.getBoard()[row][col - 1])) {
-					this.getBoard()[row][col].absorb(this.getBoard()[row][col - 1]);
+				if (this.getBoard()[row][col]
+						.equals(this.getBoard()[row][col - 1])) {
+					this.getBoard()[row][col]
+							.absorb(this.getBoard()[row][col - 1]);
 					for (int k = col - 1; k > 0; k--) {
 						this.getBoard()[row][k] = this.getBoard()[row][k - 1];
 						this.getBoard()[row][k - 1] = null;
@@ -142,8 +146,10 @@ public class Game {
 			for (int col = 0; col < size; col++) {
 				if (this.getBoard()[row][col] == null)
 					continue;
-				if (this.getBoard()[row][col].equals(this.getBoard()[row + 1][col])) {
-					this.getBoard()[row][col].absorb(this.getBoard()[row + 1][col]);
+				if (this.getBoard()[row][col]
+						.equals(this.getBoard()[row + 1][col])) {
+					this.getBoard()[row][col]
+							.absorb(this.getBoard()[row + 1][col]);
 					for (int k = row + 1; k < size - 1; k++) {
 						this.getBoard()[k][col] = this.getBoard()[k + 1][col];
 						this.getBoard()[k + 1][col] = null;
@@ -180,8 +186,10 @@ public class Game {
 			for (int col = 0; col < size; col++) {
 				if (this.getBoard()[row][col] == null)
 					continue;
-				if (this.getBoard()[row][col].equals(this.getBoard()[row - 1][col])) {
-					this.getBoard()[row][col].absorb(this.getBoard()[row - 1][col]);
+				if (this.getBoard()[row][col]
+						.equals(this.getBoard()[row - 1][col])) {
+					this.getBoard()[row][col]
+							.absorb(this.getBoard()[row - 1][col]);
 					for (int k = row - 1; k > 0; k--) {
 						this.getBoard()[k][col] = this.getBoard()[k - 1][col];
 						this.getBoard()[k - 1][col] = null;
@@ -302,8 +310,8 @@ public class Game {
 		String result = "";
 		for (int row = 0; row < size; row++) {
 			for (int col = 0; col < size; col++) {
-				result += this.getBoard()[row][col] == null ? "_"
-						: this.getBoard()[row][col];
+				result += this.getBoard()[row][col] == null ? "_" : this
+						.getBoard()[row][col];
 				result += " ";
 			}
 			result += "\n";
@@ -317,5 +325,9 @@ public class Game {
 
 	public void setBoard(Tile[][] board) {
 		this.board = board;
+	}
+
+	public int getSize() {
+		return this.size;
 	}
 }

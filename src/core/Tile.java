@@ -1,9 +1,13 @@
 package core;
 
-public class Tile {
+public class Tile implements Comparable<Tile> {
 
 	public Tile() {
 		this.value = 2;
+	}
+
+	public Tile(int v) {
+		this.value = v;
 	}
 
 	public Tile(Tile t1, Tile t2) {
@@ -40,6 +44,22 @@ public class Tile {
 		if (!obj.getClass().equals(this.getClass()))
 			return false;
 		return this.value == ((Tile) obj).getValue();
+	}
+
+	@Override
+	public Tile clone() {
+		return new Tile(this.getValue());
+	}
+
+	@Override
+	public int compareTo(Tile o) {
+		if (o == null)
+			return 3;
+		if (this.value > o.value)
+			return 1;
+		if (this.value < o.value)
+			return -1;
+		return 0;
 	}
 
 }
